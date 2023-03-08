@@ -1,4 +1,4 @@
-package com.shop4j.cloud.gateway.shop4cloudgateway;
+package com.shop4j.cloud.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

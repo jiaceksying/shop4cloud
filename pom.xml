@@ -9,6 +9,7 @@
 
 	<modules>
 		<module>shop4cloud-gateway</module>
+		<module>shop4cloud-user</module>
 	</modules>
 
 	<properties>

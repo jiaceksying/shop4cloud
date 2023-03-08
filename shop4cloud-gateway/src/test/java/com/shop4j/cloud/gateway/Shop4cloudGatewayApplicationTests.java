@@ -1,4 +1,4 @@
-package com.shop4j.cloud.gateway.shop4cloudgateway;
+package com.shop4j.cloud.gateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
