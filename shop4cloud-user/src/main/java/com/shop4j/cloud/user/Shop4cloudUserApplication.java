@@ -12,8 +12,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Shop4cloudUserApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(Shop4cloudUserApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(Shop4cloudUserApplication.class, args);
+	}
 
 }
