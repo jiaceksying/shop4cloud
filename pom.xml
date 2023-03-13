@@ -11,6 +11,7 @@
         <module>shop4cloud-api</module>
         <module>shop4cloud-common</module>
         <module>shop4cloud-gateway</module>
+        <module>shop4cloud-leaf</module>
         <module>shop4cloud-user</module>
     </modules>
 
