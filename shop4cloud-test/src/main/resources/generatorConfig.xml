@@ -1,0 +1,63 @@
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="MBGContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+
+        <plugin type="com.shop4j.cloud.test.generator.config.LombokPlugin">
+            <!-- getter/setter -->
+            <property name="getter" value="true"/>
+            <property name="setter" value="true"/>
+
+            <!-- builder -->
+            <property name="builder" value="false"/>
+
+            <!-- accessors -->
+            <property name="accessors" value="false"/>
+            <property name="accessors.chain" value="true"/>
+
+            <!-- constructor -->
+            <property name="allArgsConstructor" value="false"/>
+        </plugin>
+
+        <commentGenerator type="com.shop4j.cloud.test.generator.config.CommentGenerator">
+            <property name="author" value="amos.wang"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://106.14.182.139:3306/shop4cloud_user?serverTimezone=UTC&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8"
+                        userId="root" password="root">
+            <property name="useInformationSchema" value="true"/>
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="true"/>
+            <property name="useJSR310Types" value="true"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.shop4j.cloud.test.entity" targetProject="src/main/java">
+            <property name="rootClass" value="com.shop4j.cloud.common.model.BaseModel"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+        </sqlMapGenerator>
+
+        <javaClientGenerator targetPackage="com.shop4j.cloud.test.mapper" targetProject="src/main/java"
+                             type="XMLMAPPER">
+            <property name="rootInterface" value="com.shop4j.cloud.common.model.BaseMapper"/>
+        </javaClientGenerator>
+
+        <table schema="u_" tableName="u_user" domainObjectName="UserDO" enableInsert="true" enableSelectByPrimaryKey="true"
+               enableSelectByExample="true" enableCountByExample="true" enableUpdateByPrimaryKey="true"
+               enableUpdateByExample="false" enableDeleteByPrimaryKey="true" enableDeleteByExample="false">
+        </table>
+        <table tableName="user_addr" domainObjectName="UserAddrDO" enableInsert="true" enableSelectByPrimaryKey="true"
+               enableSelectByExample="true" enableCountByExample="true" enableUpdateByPrimaryKey="true"
+               enableUpdateByExample="false" enableDeleteByPrimaryKey="true" enableDeleteByExample="false">
+        </table>
+        <table tableName="area" domainObjectName="AreaDO" enableInsert="true" enableSelectByPrimaryKey="true"
+               enableSelectByExample="true" enableCountByExample="true" enableUpdateByPrimaryKey="true"
+               enableUpdateByExample="false" enableDeleteByPrimaryKey="true" enableDeleteByExample="false">
+        </table>
+    </context>
+</generatorConfiguration>

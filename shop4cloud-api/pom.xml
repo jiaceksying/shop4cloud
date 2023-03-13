@@ -17,7 +17,7 @@
 <!--        <module>shop4cloud-api-auth</module>-->
 <!--        <module>shop4cloud-api-biz</module>-->
 <!--        <module>shop4cloud-api-rbac</module>-->
-<!--        <module>shop4cloud-api-leaf</module>-->
+        <module>shop4cloud-api-leaf</module>
 <!--        <module>shop4cloud-api-product</module>-->
 <!--        <module>shop4cloud-api-multishop</module>-->
 <!--        <module>shop4cloud-api-order</module>-->
