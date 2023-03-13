@@ -1,72 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shop4j.cloud.user.mapper.UserAddrMapper">
-  <resultMap id="BaseResultMap" type="com.shop4j.cloud.user.entity.UserAddrDO">
-    <id column="addr_id" jdbcType="BIGINT" property="addrId" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="user_id" jdbcType="BIGINT" property="userId" />
-    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
-    <result column="is_default" jdbcType="TINYINT" property="isDefault" />
-    <result column="consignee" jdbcType="VARCHAR" property="consignee" />
-    <result column="province_id" jdbcType="BIGINT" property="provinceId" />
-    <result column="province" jdbcType="VARCHAR" property="province" />
-    <result column="city_id" jdbcType="BIGINT" property="cityId" />
-    <result column="city" jdbcType="VARCHAR" property="city" />
-    <result column="area_id" jdbcType="BIGINT" property="areaId" />
-    <result column="area" jdbcType="VARCHAR" property="area" />
-    <result column="post_code" jdbcType="VARCHAR" property="postCode" />
-    <result column="addr" jdbcType="VARCHAR" property="addr" />
-    <result column="lng" jdbcType="DECIMAL" property="lng" />
-    <result column="lat" jdbcType="DECIMAL" property="lat" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from user_addr
-    where addr_id = #{addrId,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" parameterType="com.shop4j.cloud.user.entity.UserAddrDO">
-    insert into user_addr (addr_id, create_time, update_time, 
-      user_id, mobile, is_default, 
-      consignee, province_id, province, 
-      city_id, city, area_id, 
-      area, post_code, addr, 
-      lng, lat)
-    values (#{addrId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{userId,jdbcType=BIGINT}, #{mobile,jdbcType=VARCHAR}, #{isDefault,jdbcType=TINYINT}, 
-      #{consignee,jdbcType=VARCHAR}, #{provinceId,jdbcType=BIGINT}, #{province,jdbcType=VARCHAR}, 
-      #{cityId,jdbcType=BIGINT}, #{city,jdbcType=VARCHAR}, #{areaId,jdbcType=BIGINT}, 
-      #{area,jdbcType=VARCHAR}, #{postCode,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, 
-      #{lng,jdbcType=DECIMAL}, #{lat,jdbcType=DECIMAL})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.shop4j.cloud.user.entity.UserAddrDO">
-    update user_addr
-    set create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
-      user_id = #{userId,jdbcType=BIGINT},
-      mobile = #{mobile,jdbcType=VARCHAR},
-      is_default = #{isDefault,jdbcType=TINYINT},
-      consignee = #{consignee,jdbcType=VARCHAR},
-      province_id = #{provinceId,jdbcType=BIGINT},
-      province = #{province,jdbcType=VARCHAR},
-      city_id = #{cityId,jdbcType=BIGINT},
-      city = #{city,jdbcType=VARCHAR},
-      area_id = #{areaId,jdbcType=BIGINT},
-      area = #{area,jdbcType=VARCHAR},
-      post_code = #{postCode,jdbcType=VARCHAR},
-      addr = #{addr,jdbcType=VARCHAR},
-      lng = #{lng,jdbcType=DECIMAL},
-      lat = #{lat,jdbcType=DECIMAL}
-    where addr_id = #{addrId,jdbcType=BIGINT}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select addr_id, create_time, update_time, user_id, mobile, is_default, consignee, 
-    province_id, province, city_id, city, area_id, area, post_code, addr, lng, lat
-    from user_addr
-    where addr_id = #{addrId,jdbcType=BIGINT}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select addr_id, create_time, update_time, user_id, mobile, is_default, consignee, 
-    province_id, province, city_id, city, area_id, area, post_code, addr, lng, lat
-    from user_addr
-  </select>
+
+    <resultMap id="BaseResultMap" type="com.shop4j.cloud.user.entity.UserAddrDO">
+        <id column="addr_id" jdbcType="BIGINT" property="addrId"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="user_id" jdbcType="BIGINT" property="userId"/>
+        <result column="mobile" jdbcType="VARCHAR" property="mobile"/>
+        <result column="is_default" jdbcType="TINYINT" property="isDefault"/>
+        <result column="consignee" jdbcType="VARCHAR" property="consignee"/>
+        <result column="province_id" jdbcType="BIGINT" property="provinceId"/>
+        <result column="province" jdbcType="VARCHAR" property="province"/>
+        <result column="city_id" jdbcType="BIGINT" property="cityId"/>
+        <result column="city" jdbcType="VARCHAR" property="city"/>
+        <result column="area_id" jdbcType="BIGINT" property="areaId"/>
+        <result column="area" jdbcType="VARCHAR" property="area"/>
+        <result column="post_code" jdbcType="VARCHAR" property="postCode"/>
+        <result column="addr" jdbcType="VARCHAR" property="addr"/>
+        <result column="lng" jdbcType="DECIMAL" property="lng"/>
+        <result column="lat" jdbcType="DECIMAL" property="lat"/>
+    </resultMap>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from user_addr
+        where addr_id = #{addrId,jdbcType=BIGINT}
+    </delete>
+
+    <insert id="insert" parameterType="com.shop4j.cloud.user.entity.UserAddrDO">
+        insert into user_addr (addr_id, create_time, update_time,
+        user_id, mobile, is_default,
+        consignee, province_id, province,
+        city_id, city, area_id,
+        area, post_code, addr,
+        lng, lat)
+        values (#{addrId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},
+        #{userId,jdbcType=BIGINT}, #{mobile,jdbcType=VARCHAR}, #{isDefault,jdbcType=TINYINT},
+        #{consignee,jdbcType=VARCHAR}, #{provinceId,jdbcType=BIGINT}, #{province,jdbcType=VARCHAR},
+        #{cityId,jdbcType=BIGINT}, #{city,jdbcType=VARCHAR}, #{areaId,jdbcType=BIGINT},
+        #{area,jdbcType=VARCHAR}, #{postCode,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR},
+        #{lng,jdbcType=DECIMAL}, #{lat,jdbcType=DECIMAL})
+    </insert>
+
+    <update id="updateByPrimaryKey" parameterType="com.shop4j.cloud.user.entity.UserAddrDO">
+        update user_addr
+        set create_time = #{createTime,jdbcType=TIMESTAMP},
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+        user_id = #{userId,jdbcType=BIGINT},
+        mobile = #{mobile,jdbcType=VARCHAR},
+        is_default = #{isDefault,jdbcType=TINYINT},
+        consignee = #{consignee,jdbcType=VARCHAR},
+        province_id = #{provinceId,jdbcType=BIGINT},
+        province = #{province,jdbcType=VARCHAR},
+        city_id = #{cityId,jdbcType=BIGINT},
+        city = #{city,jdbcType=VARCHAR},
+        area_id = #{areaId,jdbcType=BIGINT},
+        area = #{area,jdbcType=VARCHAR},
+        post_code = #{postCode,jdbcType=VARCHAR},
+        addr = #{addr,jdbcType=VARCHAR},
+        lng = #{lng,jdbcType=DECIMAL},
+        lat = #{lat,jdbcType=DECIMAL}
+        where addr_id = #{addrId,jdbcType=BIGINT}
+    </update>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select addr_id, create_time, update_time, user_id, mobile, is_default, consignee,
+        province_id, province, city_id, city, area_id, area, post_code, addr, lng, lat
+        from user_addr
+        where addr_id = #{addrId,jdbcType=BIGINT}
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select addr_id, create_time, update_time, user_id, mobile, is_default, consignee,
+        province_id, province, city_id, city, area_id, area, post_code, addr, lng, lat
+        from user_addr
+    </select>
 </mapper>

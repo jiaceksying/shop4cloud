@@ -1,10 +1,10 @@
 package com.shop4j.cloud.user.entity;
 
 import com.shop4j.cloud.common.model.BaseModel;
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.math.BigDecimal;
 
 /**
  * 用户地址
@@ -16,19 +16,9 @@ import lombok.Setter;
 @Setter
 public class UserAddrDO extends BaseModel {
     /**
-     * ID
+     * 主键ID
      */
     private Long addrId;
-
-    /**
-     * 建立时间
-     */
-    private LocalDateTime createTime;
-
-    /**
-     * 更新时间
-     */
-    private LocalDateTime updateTime;
 
     /**
      * 用户ID

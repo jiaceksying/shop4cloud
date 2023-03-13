@@ -1,42 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shop4j.cloud.user.mapper.AreaMapper">
-  <resultMap id="BaseResultMap" type="com.shop4j.cloud.user.entity.AreaDO">
-    <id column="area_id" jdbcType="BIGINT" property="areaId" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="area_name" jdbcType="VARCHAR" property="areaName" />
-    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
-    <result column="level" jdbcType="INTEGER" property="level" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from area
-    where area_id = #{areaId,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" parameterType="com.shop4j.cloud.user.entity.AreaDO">
-    insert into area (area_id, create_time, update_time, 
-      area_name, parent_id, level
-      )
-    values (#{areaId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{areaName,jdbcType=VARCHAR}, #{parentId,jdbcType=BIGINT}, #{level,jdbcType=INTEGER}
-      )
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.shop4j.cloud.user.entity.AreaDO">
-    update area
-    set create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
-      area_name = #{areaName,jdbcType=VARCHAR},
-      parent_id = #{parentId,jdbcType=BIGINT},
-      level = #{level,jdbcType=INTEGER}
-    where area_id = #{areaId,jdbcType=BIGINT}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select area_id, create_time, update_time, area_name, parent_id, level
-    from area
-    where area_id = #{areaId,jdbcType=BIGINT}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select area_id, create_time, update_time, area_name, parent_id, level
-    from area
-  </select>
+
+    <resultMap id="BaseResultMap" type="com.shop4j.cloud.user.entity.AreaDO">
+        <id column="area_id" jdbcType="BIGINT" property="areaId"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="area_name" jdbcType="VARCHAR" property="areaName"/>
+        <result column="parent_id" jdbcType="BIGINT" property="parentId"/>
+        <result column="level" jdbcType="INTEGER" property="level"/>
+    </resultMap>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from area
+        where area_id = #{areaId,jdbcType=BIGINT}
+    </delete>
+
+    <insert id="insert" parameterType="com.shop4j.cloud.user.entity.AreaDO">
+        insert into area (area_id, create_time, update_time,
+        area_name, parent_id, level
+        )
+        values (#{areaId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},
+        #{areaName,jdbcType=VARCHAR}, #{parentId,jdbcType=BIGINT}, #{level,jdbcType=INTEGER}
+        )
+    </insert>
+
+    <update id="updateByPrimaryKey" parameterType="com.shop4j.cloud.user.entity.AreaDO">
+        update area
+        set create_time = #{createTime,jdbcType=TIMESTAMP},
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+        area_name = #{areaName,jdbcType=VARCHAR},
+        parent_id = #{parentId,jdbcType=BIGINT},
+        level = #{level,jdbcType=INTEGER}
+        where area_id = #{areaId,jdbcType=BIGINT}
+    </update>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select area_id, create_time, update_time, area_name, parent_id, level
+        from area
+        where area_id = #{areaId,jdbcType=BIGINT}
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select area_id, create_time, update_time, area_name, parent_id, level
+        from area
+    </select>
 </mapper>

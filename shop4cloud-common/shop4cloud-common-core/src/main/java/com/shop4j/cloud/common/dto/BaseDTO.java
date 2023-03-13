@@ -3,8 +3,12 @@ package com.shop4j.cloud.common.dto;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
-import java.util.Date;
+import java.io.Serial;
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * @author ksying
@@ -12,24 +16,26 @@ import java.util.Date;
  */
 @Getter
 @Setter
-public class BaseDTO {
+public class BaseDTO implements Serializable {
 
-	/**
+    @Serial
+    private static final long serialVersionUID = 3790371363799063337L;
+
+    /**
 	 * 创建时间
 	 */
 	@ApiModelProperty("创建时间")
-	protected Date createTime;
+    protected LocalDateTime createTime;
 
 	/**
 	 * 更新时间
 	 */
 	@ApiModelProperty("更新时间")
-	protected Date updateTime;
+    protected LocalDateTime updateTime;
 
-	@Override
-	public String toString() {
-		return "BaseDTO{" + "createTime=" + createTime + ", updateTime=" + updateTime + '}';
-
-	}
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+    }
 
 }

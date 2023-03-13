@@ -50,6 +50,21 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.shop4j.cloud</groupId>
+                <artifactId>shop4cloud-common-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.shop4j.cloud</groupId>
+                <artifactId>shop4cloud-common-database</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.shop4j.cloud</groupId>
+                <artifactId>shop4cloud-api-user</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <!-- 核心依赖 -->
             <!--spring boot-->
             <dependency>

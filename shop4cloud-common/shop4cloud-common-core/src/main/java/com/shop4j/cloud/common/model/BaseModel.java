@@ -5,8 +5,9 @@ import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import java.io.Serial;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * @author ksying
@@ -16,15 +17,18 @@ import java.util.Date;
 @Setter
 public class BaseModel implements Serializable {
 
+    @Serial
+    private static final long serialVersionUID = -2603831045758485904L;
+
 	/**
 	 * 创建时间
 	 */
-	protected Date createTime;
+	protected LocalDateTime createTime;
 
 	/**
 	 * 更新时间
 	 */
-	protected Date updateTime;
+	protected LocalDateTime updateTime;
 
 	@Override
 	public String toString() {

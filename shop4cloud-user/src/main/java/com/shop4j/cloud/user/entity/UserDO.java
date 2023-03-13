@@ -1,7 +1,6 @@
 package com.shop4j.cloud.user.entity;
 
 import com.shop4j.cloud.common.model.BaseModel;
-import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,19 +14,9 @@ import lombok.Setter;
 @Setter
 public class UserDO extends BaseModel {
     /**
-     * ID
+     * 主键ID
      */
     private Long userId;
-
-    /**
-     * 注册时间
-     */
-    private LocalDateTime createTime;
-
-    /**
-     * 修改时间
-     */
-    private LocalDateTime updateTime;
 
     /**
      * 用户昵称
