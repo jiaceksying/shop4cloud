@@ -11,24 +11,26 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PageAdapter {
-    private int begin;
 
-    private int size;
+	private int begin;
 
-    public PageAdapter(PageDTO page) {
-        this.begin = getStart(page.getPageNum() - 1, page.getPageSize());
-        this.size = page.getPageSize();
-    }
+	private int size;
 
-    public static int getStart(int pageNo, int pageSize) {
-        if (pageNo < 0) {
-            pageNo = 0;
-        }
+	public PageAdapter(PageDTO page) {
+		this.begin = getStart(page.getPageNum() - 1, page.getPageSize());
+		this.size = page.getPageSize();
+	}
 
-        if (pageSize < 1) {
-            pageSize = 0;
-        }
+	public static int getStart(int pageNo, int pageSize) {
+		if (pageNo < 0) {
+			pageNo = 0;
+		}
 
-        return pageNo * pageSize;
-    }
+		if (pageSize < 1) {
+			pageSize = 0;
+		}
+
+		return pageNo * pageSize;
+	}
+
 }

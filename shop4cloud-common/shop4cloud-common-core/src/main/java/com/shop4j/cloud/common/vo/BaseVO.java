@@ -14,21 +14,21 @@ import java.util.Date;
 @Setter
 public class BaseVO {
 
-    /**
-     * 创建时间
-     */
-    @ApiModelProperty("创建时间")
-    protected Date createTime;
+	/**
+	 * 创建时间
+	 */
+	@ApiModelProperty("创建时间")
+	protected Date createTime;
 
-    /**
-     * 更新时间
-     */
-    @ApiModelProperty("更新时间")
-    protected Date updateTime;
+	/**
+	 * 更新时间
+	 */
+	@ApiModelProperty("更新时间")
+	protected Date updateTime;
 
-    @Override
-    public String toString() {
-        return "BaseDTO{" + "createTime=" + createTime + ", updateTime=" + updateTime + '}';
-    }
+	@Override
+	public String toString() {
+		return "BaseDTO{" + "createTime=" + createTime + ", updateTime=" + updateTime + '}';
+	}
 
 }

@@ -15,17 +15,20 @@ import org.springframework.stereotype.Component;
  * @date 2023/3/12 14:43
  */
 @Component
-@ConditionalOnClass({RequestInterceptor.class, GlobalTransactional.class})
+@ConditionalOnClass({ RequestInterceptor.class, GlobalTransactional.class })
 public class SeataRequestInterceptor implements RequestInterceptor {
 
-    private static final Logger logger = LoggerFactory.getLogger(SeataRequestInterceptor.class);
+	private static final Logger logger = LoggerFactory.getLogger(SeataRequestInterceptor.class);
 
-    @Override
-    public void apply(RequestTemplate template) {
-        // todo
-//        String currentXid = RootContext.getXID();
-//        if (StrUtil.isNotBlank(currentXid) && !template.url().startsWith(Auth.CHECK_TOKEN_URI) && !template.url().startsWith(Auth.CHECK_RBAC_URI)) {
-//            template.header(RootContext.KEY_XID, currentXid);
-//        }
-    }
+	@Override
+	public void apply(RequestTemplate template) {
+		// todo
+		// String currentXid = RootContext.getXID();
+		// if (StrUtil.isNotBlank(currentXid) &&
+		// !template.url().startsWith(Auth.CHECK_TOKEN_URI) &&
+		// !template.url().startsWith(Auth.CHECK_RBAC_URI)) {
+		// template.header(RootContext.KEY_XID, currentXid);
+		// }
+	}
+
 }

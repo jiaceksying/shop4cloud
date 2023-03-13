@@ -8,8 +8,7 @@ import org.springframework.context.annotation.Configuration;
  * @date 2023/3/12 14:42
  */
 @Configuration
-@MapperScan({ "com.mall4j.cloud.**.mapper" })
+@MapperScan({ "com.shop4j.cloud.**.mapper" })
 public class MybatisConfig {
-
 
 }

@@ -9,7 +9,7 @@
     </parent>
     <artifactId>shop4cloud-leaf</artifactId>
     <packaging>jar</packaging>
-    <description>mall4cloud 基于美团leaf的生成id服务</description>
+    <description>shop4cloud 基于美团leaf的生成id服务</description>
     <dependencies>
         <dependency>
             <groupId>com.mysql</groupId>

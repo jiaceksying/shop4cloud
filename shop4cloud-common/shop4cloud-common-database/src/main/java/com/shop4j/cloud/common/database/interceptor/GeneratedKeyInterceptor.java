@@ -25,135 +25,139 @@ import java.util.Map;
  * @date 2023/3/12 15:24
  */
 @Component
-@Intercepts({@Signature(type = Executor.class, method = "update", args = {MappedStatement.class,Object.class})})
+@Intercepts({ @Signature(type = Executor.class, method = "update", args = { MappedStatement.class, Object.class }) })
 public class GeneratedKeyInterceptor implements Interceptor {
 
-    private static final Logger logger = LoggerFactory.getLogger(GeneratedKeyInterceptor.class);
-    /**
-     * 单个插入名称
-     */
-    private static final String INSERT = "insert";
+	private static final Logger logger = LoggerFactory.getLogger(GeneratedKeyInterceptor.class);
 
-    /**
-     * 单个插入名称
-     */
-    private static final String SAVE = "save";
+	/**
+	 * 单个插入名称
+	 */
+	private static final String INSERT = "insert";
 
-    /**
-     * 批量插入名称
-     */
-    private static final String BATCH_INSERT = "insertBatch";
+	/**
+	 * 单个插入名称
+	 */
+	private static final String SAVE = "save";
 
-    /**
-     * 批量插入名称
-     */
-    private static final String BATCH_SAVE = "saveBatch";
+	/**
+	 * 批量插入名称
+	 */
+	private static final String BATCH_INSERT = "insertBatch";
 
-    @DubboReference
-    private SegmentDubboService segmentService;
+	/**
+	 * 批量插入名称
+	 */
+	private static final String BATCH_SAVE = "saveBatch";
 
-    @Override
-    public Object intercept(Invocation invocation) throws Throwable {
+	@DubboReference
+	private SegmentDubboService segmentService;
 
-        MappedStatement mappedStatement = (MappedStatement)invocation.getArgs()[0];
+	@Override
+	public Object intercept(Invocation invocation) throws Throwable {
 
-        // 获取 SQL
-        SqlCommandType sqlCommandType = mappedStatement.getSqlCommandType();
+		MappedStatement mappedStatement = (MappedStatement) invocation.getArgs()[0];
 
-        // 不是 insert 类型的跳过
-        if (SqlCommandType.INSERT != sqlCommandType) {
-            return invocation.proceed();
-        }
+		// 获取 SQL
+		SqlCommandType sqlCommandType = mappedStatement.getSqlCommandType();
 
-        int one = 1;
+		// 不是 insert 类型的跳过
+		if (SqlCommandType.INSERT != sqlCommandType) {
+			return invocation.proceed();
+		}
 
-        // 获取参数
-        Object parameter = invocation.getArgs()[one];
+		int one = 1;
 
-        // 找数据库中的对象
-        Object dbObject = findDbObject(parameter);
+		// 获取参数
+		Object parameter = invocation.getArgs()[one];
 
-        if (dbObject == null) {
-            return invocation.proceed();
-        }
+		// 找数据库中的对象
+		Object dbObject = findDbObject(parameter);
 
-        // 插入
-        if (mappedStatement.getId().contains(INSERT) || mappedStatement.getId().contains(SAVE)){
-            generatedKey(dbObject);
-        }
-        // 批量插入
-        else if (mappedStatement.getId().contains(BATCH_INSERT) || mappedStatement.getId().contains(BATCH_SAVE)){
-            // 获取批量查询的参数并生成主键
-            if (parameter instanceof HashMap){
-                Object list = ((Map)parameter).get("list");
-                if (list instanceof ArrayList) {
-                    for (Object o : (ArrayList) list) {
-                        generatedKey(dbObject);
-                    }
-                }
-            }
-        }
+		if (dbObject == null) {
+			return invocation.proceed();
+		}
 
-        return invocation.proceed();
-    }
+		// 插入
+		if (mappedStatement.getId().contains(INSERT) || mappedStatement.getId().contains(SAVE)) {
+			generatedKey(dbObject);
+		}
+		// 批量插入
+		else if (mappedStatement.getId().contains(BATCH_INSERT) || mappedStatement.getId().contains(BATCH_SAVE)) {
+			// 获取批量查询的参数并生成主键
+			if (parameter instanceof HashMap) {
+				Object list = ((Map) parameter).get("list");
+				if (list instanceof ArrayList) {
+					for (Object o : (ArrayList) list) {
+						generatedKey(dbObject);
+					}
+				}
+			}
+		}
 
-    protected BaseModel findDbObject(Object parameterObj) {
-        if (parameterObj instanceof BaseModel) {
-            return  (BaseModel)parameterObj;
-        } else if (parameterObj instanceof Map) {
-            for (Object val : ((Map<?, ?>) parameterObj).values()) {
-                if (val instanceof BaseModel) {
-                    return  (BaseModel)val;
-                }
-            }
-        }
-        return null;
-    }
+		return invocation.proceed();
+	}
 
-    /**
-     * 获取私有成员变量 ,并设置主键
-     * @param parameter 参数
-     */
-    private void generatedKey(Object parameter) throws Throwable {
+	protected BaseModel findDbObject(Object parameterObj) {
+		if (parameterObj instanceof BaseModel) {
+			return (BaseModel) parameterObj;
+		}
+		else if (parameterObj instanceof Map) {
+			for (Object val : ((Map<?, ?>) parameterObj).values()) {
+				if (val instanceof BaseModel) {
+					return (BaseModel) val;
+				}
+			}
+		}
+		return null;
+	}
 
-        Field[] fieldList = parameter.getClass().getDeclaredFields();
+	/**
+	 * 获取私有成员变量 ,并设置主键
+	 * @param parameter 参数
+	 */
+	private void generatedKey(Object parameter) throws Throwable {
 
-        for (Field field : fieldList) {
+		Field[] fieldList = parameter.getClass().getDeclaredFields();
 
-            if (!field.getType().isAssignableFrom(Long.class)) {
-                break;
-            }
+		for (Field field : fieldList) {
 
-            DistributedId annotation = field.getAnnotation(DistributedId.class);
-            if (annotation == null) {
-                break;
-            }
+			if (!field.getType().isAssignableFrom(Long.class)) {
+				break;
+			}
 
-            field.setAccessible(true);
-            if (field.get(parameter) != null) {
-                break;
-            }
-            UnifiedResponseEntity<Long> segmentIdResponseEntity = segmentService.getSegmentId(annotation.value());
-            if (segmentIdResponseEntity.isSuccess()) {
-                // 这里设置分布式id
-                field.set(parameter,segmentIdResponseEntity.getData());
-            } else {
-                logger.error("can't get distributed id !!!! ");
-                throw new Shop4CloudException(ResponseEnum.EXCEPTION);
-            }
-        }
-    }
+			DistributedId annotation = field.getAnnotation(DistributedId.class);
+			if (annotation == null) {
+				break;
+			}
 
-    /**
-     * Plugin.wrap生成拦截代理对象
-     */
-    @Override
-    public Object plugin(Object o) {
-        if (o instanceof Executor) {
-            return Plugin.wrap(o, this);
-        } else {
-            return o;
-        }
-    }
+			field.setAccessible(true);
+			if (field.get(parameter) != null) {
+				break;
+			}
+			UnifiedResponseEntity<Long> segmentIdResponseEntity = segmentService.getSegmentId(annotation.value());
+			if (segmentIdResponseEntity.isSuccess()) {
+				// 这里设置分布式id
+				field.set(parameter, segmentIdResponseEntity.getData());
+			}
+			else {
+				logger.error("can't get distributed id !!!! ");
+				throw new Shop4CloudException(ResponseEnum.EXCEPTION);
+			}
+		}
+	}
+
+	/**
+	 * Plugin.wrap生成拦截代理对象
+	 */
+	@Override
+	public Object plugin(Object o) {
+		if (o instanceof Executor) {
+			return Plugin.wrap(o, this);
+		}
+		else {
+			return o;
+		}
+	}
 
 }

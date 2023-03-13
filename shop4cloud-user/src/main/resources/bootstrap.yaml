@@ -1,12 +1,12 @@
 server:
-  port: 8001
+  port: 8002
 spring:
   application:
     name: @artifactId@
   cloud:
     nacos:
       discovery:
-        server-addr: ${NACOS_HOST:124.222.133.21}:${NACOS_PORT:8848}
+        server-addr: ${NACOS_HOST:106.14.182.139}:${NACOS_PORT:8848}
         username: nacos
         password: nacos
       config:

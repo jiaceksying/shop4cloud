@@ -9,44 +9,44 @@ import java.io.Serial;
  * @date 2023/3/12 14:56
  */
 public class Shop4CloudException extends RuntimeException {
-    @Serial
-    private static final long serialVersionUID = 1L;
 
-    private Object object;
+	@Serial
+	private static final long serialVersionUID = 1L;
 
-    private ResponseEnum responseEnum;
+	private Object object;
 
-    public Shop4CloudException(String msg) {
-        super(msg);
-    }
+	private ResponseEnum responseEnum;
 
-    public Shop4CloudException(String msg, Object object) {
-        super(msg);
-        this.object = object;
-    }
+	public Shop4CloudException(String msg) {
+		super(msg);
+	}
 
-    public Shop4CloudException(String msg, Throwable cause) {
-        super(msg, cause);
-    }
+	public Shop4CloudException(String msg, Object object) {
+		super(msg);
+		this.object = object;
+	}
 
+	public Shop4CloudException(String msg, Throwable cause) {
+		super(msg, cause);
+	}
 
-    public Shop4CloudException(ResponseEnum responseEnum) {
-        super(responseEnum.getMsg());
-        this.responseEnum = responseEnum;
-    }
+	public Shop4CloudException(ResponseEnum responseEnum) {
+		super(responseEnum.getMsg());
+		this.responseEnum = responseEnum;
+	}
 
-    public Shop4CloudException(ResponseEnum responseEnum, Object object) {
-        super(responseEnum.getMsg());
-        this.responseEnum = responseEnum;
-        this.object = object;
-    }
+	public Shop4CloudException(ResponseEnum responseEnum, Object object) {
+		super(responseEnum.getMsg());
+		this.responseEnum = responseEnum;
+		this.object = object;
+	}
 
+	public Object getObject() {
+		return object;
+	}
 
-    public Object getObject() {
-        return object;
-    }
+	public ResponseEnum getResponseEnum() {
+		return responseEnum;
+	}
 
-    public ResponseEnum getResponseEnum() {
-        return responseEnum;
-    }
 }

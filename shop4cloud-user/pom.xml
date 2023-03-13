@@ -42,7 +42,7 @@
         </dependency>
 <!--        <dependency>-->
 <!--            <groupId>com.mall4j.cloud</groupId>-->
-<!--            <artifactId>mall4cloud-common-security</artifactId>-->
+<!--            <artifactId>shop4cloud-common-security</artifactId>-->
 <!--            <version>${project.version}</version>-->
 <!--        </dependency>-->
         <dependency>
@@ -52,12 +52,12 @@
         </dependency>
 <!--        <dependency>-->
 <!--            <groupId>com.mall4j.cloud</groupId>-->
-<!--            <artifactId>mall4cloud-api-platform</artifactId>-->
+<!--            <artifactId>shop4cloud-api-platform</artifactId>-->
 <!--            <version>${project.version}</version>-->
 <!--        </dependency>-->
 <!--        <dependency>-->
 <!--            <groupId>com.mall4j.cloud</groupId>-->
-<!--            <artifactId>mall4cloud-api-biz</artifactId>-->
+<!--            <artifactId>shop4cloud-api-biz</artifactId>-->
 <!--            <version>${project.version}</version>-->
 <!--        </dependency>-->
     </dependencies>

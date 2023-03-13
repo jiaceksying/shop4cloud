@@ -15,14 +15,14 @@
     <modules>
         <module>shop4cloud-common-core</module>
         <module>shop4cloud-common-database</module>
-        <!--        <module>mall4cloud-api-auth</module>-->
-        <!--        <module>mall4cloud-api-biz</module>-->
-        <!--        <module>mall4cloud-api-rbac</module>-->
-        <!--        <module>mall4cloud-api-leaf</module>-->
-        <!--        <module>mall4cloud-api-product</module>-->
-        <!--        <module>mall4cloud-api-multishop</module>-->
-        <!--        <module>mall4cloud-api-order</module>-->
-        <!--        <module>mall4cloud-api-search</module>-->
-        <!--        <module>mall4cloud-api-platform</module>-->
+        <!--        <module>shop4cloud-api-auth</module>-->
+        <!--        <module>shop4cloud-api-biz</module>-->
+        <!--        <module>shop4cloud-api-rbac</module>-->
+        <!--        <module>shop4cloud-api-leaf</module>-->
+        <!--        <module>shop4cloud-api-product</module>-->
+        <!--        <module>shop4cloud-api-multishop</module>-->
+        <!--        <module>shop4cloud-api-order</module>-->
+        <!--        <module>shop4cloud-api-search</module>-->
+        <!--        <module>shop4cloud-api-platform</module>-->
     </modules>
 </project>

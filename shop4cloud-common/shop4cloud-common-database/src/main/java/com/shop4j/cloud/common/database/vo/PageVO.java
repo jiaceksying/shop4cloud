@@ -13,21 +13,19 @@ import java.util.List;
 @Getter
 @Setter
 public class PageVO<T> {
-    @ApiModelProperty("总页数")
-    private Integer pages;
 
-    @ApiModelProperty("总条目数")
-    private Long total;
+	@ApiModelProperty("总页数")
+	private Integer pages;
 
-    @ApiModelProperty("结果集")
-    private List<T> list;
+	@ApiModelProperty("总条目数")
+	private Long total;
 
-    @Override
-    public String toString() {
-        return "PageVO{" +
-                ", pages=" + pages +
-                ", total=" + total +
-                ", list=" + list +
-                '}';
-    }
+	@ApiModelProperty("结果集")
+	private List<T> list;
+
+	@Override
+	public String toString() {
+		return "PageVO{" + ", pages=" + pages + ", total=" + total + ", list=" + list + '}';
+	}
+
 }

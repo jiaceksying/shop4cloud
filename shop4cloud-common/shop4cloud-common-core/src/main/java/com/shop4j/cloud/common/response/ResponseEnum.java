@@ -9,39 +9,41 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public enum ResponseEnum {
 
-    /**
-     * ok
-     */
-    OK("00000", "ok"),
+	/**
+	 * ok
+	 */
+	OK("00000", "ok"),
 
-    /**
-     * 用于直接显示提示用户的错误，内容由输入内容决定
-     */
-    SHOW_FAIL("A00001", ""),
+	/**
+	 * 用于直接显示提示用户的错误，内容由输入内容决定
+	 */
+	SHOW_FAIL("A00001", ""),
 
-    /**
-     * 服务器出了点小差
-     */
-    EXCEPTION("A00005", "服务器出了点小差"),
+	/**
+	 * 服务器出了点小差
+	 */
+	EXCEPTION("A00005", "服务器出了点小差"),
 
-    /**
-     * 数据异常
-     */
-    DATA_ERROR("A00007", "数据异常，请刷新后重新操作");
-    private final String code;
+	/**
+	 * 数据异常
+	 */
+	DATA_ERROR("A00007", "数据异常，请刷新后重新操作");
 
-    private final String msg;
+	private final String code;
 
-    public String value() {
-        return code;
-    }
+	private final String msg;
 
-    public String getMsg() {
-        return msg;
-    }
+	public String value() {
+		return code;
+	}
 
-    @Override
-    public String toString() {
-        return "ResponseEnum{" + "code='" + code + '\'' + ", msg='" + msg + '\'' + "} " + super.toString();
-    }
+	public String getMsg() {
+		return msg;
+	}
+
+	@Override
+	public String toString() {
+		return "ResponseEnum{" + "code='" + code + '\'' + ", msg='" + msg + '\'' + "} " + super.toString();
+	}
+
 }
