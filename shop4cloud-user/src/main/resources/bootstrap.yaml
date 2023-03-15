@@ -19,3 +19,14 @@ spring:
         password: ${spring.cloud.nacos.discovery.password}
   profiles:
     active: @profiles.active@
+
+dubbo:
+  application-name:
+    name: @artifactId@
+  scan:
+    base-packages: com.shop4j.cloud.user.facade
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://${spring.cloud.nacos.discovery.server-addr}

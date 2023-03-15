@@ -4,7 +4,6 @@ import com.shop4j.cloud.common.response.UnifiedResponseEntity;
 import com.shop4j.cloud.user.api.UserApi;
 import com.shop4j.cloud.user.model.UserDTO;
 import org.apache.dubbo.config.annotation.DubboService;
-import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
@@ -14,8 +13,7 @@ import java.time.LocalDateTime;
  * @author <a href="mailto:daoyuan0626@gmail.com">amos.wang</a>
  * @date 2023/3/14
  */
-@Service
-@DubboService(interfaceClass = UserApi.class, timeout = 3000)
+@DubboService(interfaceClass = UserApi.class, version = "1.0.0", group = "shop-cloud")
 public class UserApiImpl implements UserApi {
 
     @Override
