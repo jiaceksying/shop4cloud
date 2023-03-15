@@ -30,6 +30,7 @@
         <!--分离出这两个东西，是为了能够在 spring cloud alibaba不更新的时候，及时更新-->
         <seata.version>1.6.1</seata.version>
         <nacos.version>2.2.1-RC</nacos.version>
+        <!-- FIXME 待升级正式包 -->
         <dubbo.version>3.2.0-beta.5</dubbo.version>
 
         <!-- 次要依赖 -->
