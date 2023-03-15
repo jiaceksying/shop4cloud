@@ -30,6 +30,7 @@
         <!--分离出这两个东西，是为了能够在 spring cloud alibaba不更新的时候，及时更新-->
         <seata.version>1.6.1</seata.version>
         <nacos.version>2.2.1-RC</nacos.version>
+        <dubbo.version>3.1.7</dubbo.version>
 
         <!-- 次要依赖 -->
         <hutool-version>5.8.14</hutool-version>
@@ -45,7 +46,6 @@
         <spring-javaformat.version>0.0.38</spring-javaformat.version>
         <mysql.version>8.0.32</mysql.version>
         <lombok.version>1.18.26</lombok.version>
-        <dubbo.version>3.1.7</dubbo.version>
     </properties>
 
     <dependencyManagement>
@@ -119,7 +119,7 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.dubbo</groupId>
-                <artifactId>dubbo</artifactId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
                 <version>${dubbo.version}</version>
             </dependency>
 
