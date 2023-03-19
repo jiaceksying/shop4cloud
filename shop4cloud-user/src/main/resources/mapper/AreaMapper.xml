@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.shop4j.cloud.user.mapper.AreaMapper">
+<mapper namespace="com.shop4j.cloud.user.infra.dao.mapper.AreaMapper">
 
-    <resultMap id="BaseResultMap" type="com.shop4j.cloud.user.entity.AreaDO">
+    <resultMap id="BaseResultMap" type="com.shop4j.cloud.user.infra.dao.entity.AreaDO">
         <id column="area_id" jdbcType="BIGINT" property="areaId"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
@@ -16,7 +16,7 @@
         where area_id = #{areaId,jdbcType=BIGINT}
     </delete>
 
-    <insert id="insert" parameterType="com.shop4j.cloud.user.entity.AreaDO">
+    <insert id="insert" parameterType="com.shop4j.cloud.user.infra.dao.entity.AreaDO">
         insert into area (area_id, create_time, update_time,
         area_name, parent_id, level
         )
@@ -25,7 +25,7 @@
         )
     </insert>
 
-    <update id="updateByPrimaryKey" parameterType="com.shop4j.cloud.user.entity.AreaDO">
+    <update id="updateByPrimaryKey" parameterType="com.shop4j.cloud.user.infra.dao.entity.AreaDO">
         update area
         set create_time = #{createTime,jdbcType=TIMESTAMP},
         update_time = #{updateTime,jdbcType=TIMESTAMP},

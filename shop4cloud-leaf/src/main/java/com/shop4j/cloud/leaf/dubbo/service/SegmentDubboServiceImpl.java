@@ -1,7 +1,7 @@
 package com.shop4j.cloud.leaf.dubbo.service;
 
 import com.shop4j.cloud.api.leaf.dubbo.SegmentDubboService;
-import com.shop4j.cloud.common.response.UnifiedResponseEntity;
+import com.shop4j.cloud.common.response.UnifiedResponse;
 import com.shop4j.cloud.leaf.common.Result;
 import com.shop4j.cloud.leaf.common.Status;
 import com.shop4j.cloud.leaf.exception.LeafServerException;
@@ -28,8 +28,8 @@ public class SegmentDubboServiceImpl implements SegmentDubboService {
     private SegmentService segmentService;
 
     @Override
-    public UnifiedResponseEntity<Long> getSegmentId(String key) {
-        return UnifiedResponseEntity.success(get(key, segmentService.getId(key)));
+    public UnifiedResponse<Long> getSegmentId(String key) {
+        return UnifiedResponse.success(get(key, segmentService.getId(key)));
     }
 
 

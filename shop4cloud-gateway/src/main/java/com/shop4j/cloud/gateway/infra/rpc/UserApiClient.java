@@ -1,6 +1,6 @@
 package com.shop4j.cloud.gateway.infra.rpc;
 
-import com.shop4j.cloud.common.response.UnifiedResponseEntity;
+import com.shop4j.cloud.common.response.UnifiedResponse;
 import com.shop4j.cloud.user.model.UserDTO;
 
 /**
@@ -11,6 +11,6 @@ import com.shop4j.cloud.user.model.UserDTO;
  */
 public interface UserApiClient {
 
-    UnifiedResponseEntity<UserDTO> getById(Long id);
+    UnifiedResponse<UserDTO> getById(Long id);
 
 }

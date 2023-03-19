@@ -1,6 +1,6 @@
 package com.shop4j.cloud.gateway.infra.rpc;
 
-import com.shop4j.cloud.common.response.UnifiedResponseEntity;
+import com.shop4j.cloud.common.response.UnifiedResponse;
 import com.shop4j.cloud.user.model.UserDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -23,7 +23,7 @@ public class UserApiClientTests {
     @Test
     public void getUserById() {
         Long userId = 100L;
-        UnifiedResponseEntity<UserDTO> response = userApiClient.getById(userId);
+        UnifiedResponse<UserDTO> response = userApiClient.getById(userId);
         log.info("getUserById id: [{}], result: [{}]", userId, response);
 
         log.info("user info! [{}]", response.getData());

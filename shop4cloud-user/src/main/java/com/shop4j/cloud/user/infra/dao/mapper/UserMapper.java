@@ -1,7 +1,7 @@
-package com.shop4j.cloud.user.mapper;
+package com.shop4j.cloud.user.infra.dao.mapper;
 
 import com.shop4j.cloud.common.model.BaseMapper;
-import com.shop4j.cloud.user.entity.UserDO;
+import com.shop4j.cloud.user.infra.dao.entity.UserDO;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

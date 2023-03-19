@@ -1,6 +1,6 @@
 package com.shop4j.cloud.user.api;
 
-import com.shop4j.cloud.common.response.UnifiedResponseEntity;
+import com.shop4j.cloud.common.response.UnifiedResponse;
 import com.shop4j.cloud.user.model.UserDTO;
 
 /**
@@ -17,6 +17,6 @@ public interface UserApi {
      * @param id 用户ID
      * @return 用户信息
      */
-    UnifiedResponseEntity<UserDTO> getById(Long id);
+    UnifiedResponse<UserDTO> getById(Long id);
 
 }

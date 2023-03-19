@@ -1,4 +1,4 @@
-package com.shop4j.cloud.user.entity;
+package com.shop4j.cloud.user.infra.dao.entity;
 
 import com.shop4j.cloud.common.model.BaseModel;
 import lombok.Getter;

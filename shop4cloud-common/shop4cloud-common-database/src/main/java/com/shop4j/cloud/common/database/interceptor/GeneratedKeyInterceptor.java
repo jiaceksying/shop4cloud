@@ -5,7 +5,7 @@ import com.shop4j.cloud.common.database.annotation.DistributedId;
 import com.shop4j.cloud.common.exception.Shop4CloudException;
 import com.shop4j.cloud.common.model.BaseModel;
 import com.shop4j.cloud.common.response.ResponseEnum;
-import com.shop4j.cloud.common.response.UnifiedResponseEntity;
+import com.shop4j.cloud.common.response.UnifiedResponse;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.MappedStatement;
@@ -135,7 +135,7 @@ public class GeneratedKeyInterceptor implements Interceptor {
 			if (field.get(parameter) != null) {
 				break;
 			}
-			UnifiedResponseEntity<Long> segmentIdResponseEntity = segmentService.getSegmentId(annotation.value());
+			UnifiedResponse<Long> segmentIdResponseEntity = segmentService.getSegmentId(annotation.value());
 			if (segmentIdResponseEntity.isSuccess()) {
 				// 这里设置分布式id
 				field.set(parameter, segmentIdResponseEntity.getData());

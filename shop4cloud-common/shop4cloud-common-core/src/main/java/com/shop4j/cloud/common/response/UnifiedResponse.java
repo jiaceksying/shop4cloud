@@ -3,9 +3,8 @@ package com.shop4j.cloud.common.response;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -18,7 +17,10 @@ import java.util.Objects;
 @Slf4j
 @Getter
 @Setter
-public class UnifiedResponseEntity<T> implements Serializable {
+public class UnifiedResponse<T> implements Serializable {
+
+	@Serial
+	private static final long serialVersionUID = -5184273427222371942L;
 
 	/**
 	 * 状态码
@@ -44,15 +46,15 @@ public class UnifiedResponseEntity<T> implements Serializable {
 		return "ServerResponseEntity{" + "code=" + code + ", msg='" + msg + '\'' + ", data=" + data + '}';
 	}
 
-	public static <T> UnifiedResponseEntity<T> success(T data) {
-		UnifiedResponseEntity<T> serverResponseEntity = new UnifiedResponseEntity<>();
+	public static <T> UnifiedResponse<T> success(T data) {
+		UnifiedResponse<T> serverResponseEntity = new UnifiedResponse<>();
 		serverResponseEntity.setData(data);
 		serverResponseEntity.setCode(ResponseEnum.OK.value());
 		return serverResponseEntity;
 	}
 
-	public static <T> UnifiedResponseEntity<T> success() {
-		UnifiedResponseEntity<T> serverResponseEntity = new UnifiedResponseEntity<>();
+	public static <T> UnifiedResponse<T> success() {
+		UnifiedResponse<T> serverResponseEntity = new UnifiedResponse<>();
 		serverResponseEntity.setCode(ResponseEnum.OK.value());
 		serverResponseEntity.setMsg(ResponseEnum.OK.getMsg());
 		return serverResponseEntity;
@@ -63,33 +65,33 @@ public class UnifiedResponseEntity<T> implements Serializable {
 	 * @param msg 失败消息
 	 * @return
 	 */
-	public static <T> UnifiedResponseEntity<T> showFailMsg(String msg) {
+	public static <T> UnifiedResponse<T> showFailMsg(String msg) {
 		log.error(msg);
-		UnifiedResponseEntity<T> serverResponseEntity = new UnifiedResponseEntity<>();
+		UnifiedResponse<T> serverResponseEntity = new UnifiedResponse<>();
 		serverResponseEntity.setMsg(msg);
 		serverResponseEntity.setCode(ResponseEnum.SHOW_FAIL.value());
 		return serverResponseEntity;
 	}
 
-	public static <T> UnifiedResponseEntity<T> fail(ResponseEnum responseEnum) {
+	public static <T> UnifiedResponse<T> fail(ResponseEnum responseEnum) {
 		log.error(responseEnum.toString());
-		UnifiedResponseEntity<T> serverResponseEntity = new UnifiedResponseEntity<>();
+		UnifiedResponse<T> serverResponseEntity = new UnifiedResponse<>();
 		serverResponseEntity.setMsg(responseEnum.getMsg());
 		serverResponseEntity.setCode(responseEnum.value());
 		return serverResponseEntity;
 	}
 
-	public static <T> UnifiedResponseEntity<T> fail(ResponseEnum responseEnum, T data) {
+	public static <T> UnifiedResponse<T> fail(ResponseEnum responseEnum, T data) {
 		log.error(responseEnum.toString());
-		UnifiedResponseEntity<T> serverResponseEntity = new UnifiedResponseEntity<>();
+		UnifiedResponse<T> serverResponseEntity = new UnifiedResponse<>();
 		serverResponseEntity.setMsg(responseEnum.getMsg());
 		serverResponseEntity.setCode(responseEnum.value());
 		serverResponseEntity.setData(data);
 		return serverResponseEntity;
 	}
 
-	public static <T> UnifiedResponseEntity<T> transform(UnifiedResponseEntity<?> oldServerResponseEntity) {
-		UnifiedResponseEntity<T> serverResponseEntity = new UnifiedResponseEntity<>();
+	public static <T> UnifiedResponse<T> transform(UnifiedResponse<?> oldServerResponseEntity) {
+		UnifiedResponse<T> serverResponseEntity = new UnifiedResponse<>();
 		serverResponseEntity.setMsg(oldServerResponseEntity.getMsg());
 		serverResponseEntity.setCode(oldServerResponseEntity.getCode());
 		log.error(serverResponseEntity.toString());

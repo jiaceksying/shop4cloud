@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.shop4j.cloud.user.mapper.UserMapper">
+<mapper namespace="com.shop4j.cloud.user.infra.dao.mapper.UserMapper">
 
-    <resultMap id="BaseResultMap" type="com.shop4j.cloud.user.entity.UserDO">
+    <resultMap id="BaseResultMap" type="com.shop4j.cloud.user.infra.dao.entity.UserDO">
         <id column="user_id" jdbcType="BIGINT" property="userId"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
@@ -16,16 +16,16 @@
         where user_id = #{userId,jdbcType=BIGINT}
     </delete>
 
-    <insert id="insert" parameterType="com.shop4j.cloud.user.entity.UserDO">
+    <insert id="insert" parameterType="com.shop4j.cloud.user.infra.dao.entity.UserDO">
         insert into user (user_id, create_time, update_time,
         nick_name, pic, status
         )
-        values (#{userId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},
+        values (#{userId,jdbcType=BIGINT}, now(), now(),
         #{nickName,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}
         )
     </insert>
 
-    <update id="updateByPrimaryKey" parameterType="com.shop4j.cloud.user.entity.UserDO">
+    <update id="updateByPrimaryKey" parameterType="com.shop4j.cloud.user.infra.dao.entity.UserDO">
         update user
         set create_time = #{createTime,jdbcType=TIMESTAMP},
         update_time = #{updateTime,jdbcType=TIMESTAMP},

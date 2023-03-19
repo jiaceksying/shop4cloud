@@ -1,6 +1,6 @@
-package com.shop4j.cloud.user.facade;
+package com.shop4j.cloud.user.app.api;
 
-import com.shop4j.cloud.common.response.UnifiedResponseEntity;
+import com.shop4j.cloud.common.response.UnifiedResponse;
 import com.shop4j.cloud.user.api.UserApi;
 import com.shop4j.cloud.user.model.UserDTO;
 import org.apache.dubbo.config.annotation.DubboService;
@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class UserApiImpl implements UserApi {
 
     @Override
-    public UnifiedResponseEntity<UserDTO> getById(Long id) {
+    public UnifiedResponse<UserDTO> getById(Long id) {
         UserDTO userDTO = new UserDTO();
         userDTO.setUserId(id);
         userDTO.setNickName("default");
@@ -26,6 +26,6 @@ public class UserApiImpl implements UserApi {
         userDTO.setCreateTime(LocalDateTime.now());
         userDTO.setUpdateTime(LocalDateTime.now());
 
-        return UnifiedResponseEntity.success(userDTO);
+        return UnifiedResponse.success(userDTO);
     }
 }

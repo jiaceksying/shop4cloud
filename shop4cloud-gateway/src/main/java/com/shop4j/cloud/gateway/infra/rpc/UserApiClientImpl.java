@@ -1,6 +1,6 @@
 package com.shop4j.cloud.gateway.infra.rpc;
 
-import com.shop4j.cloud.common.response.UnifiedResponseEntity;
+import com.shop4j.cloud.common.response.UnifiedResponse;
 import com.shop4j.cloud.user.api.UserApi;
 import com.shop4j.cloud.user.model.UserDTO;
 import org.apache.dubbo.config.annotation.DubboReference;
@@ -19,7 +19,7 @@ public class UserApiClientImpl implements UserApiClient {
     private UserApi userApi;
 
     @Override
-    public UnifiedResponseEntity<UserDTO> getById(Long id) {
+    public UnifiedResponse<UserDTO> getById(Long id) {
         return userApi.getById(id);
     }
 }

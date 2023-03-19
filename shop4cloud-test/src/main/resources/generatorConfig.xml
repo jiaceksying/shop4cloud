@@ -25,7 +25,7 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://106.14.182.139:3306/shop4cloud_user?serverTimezone=UTC&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8"
+                        connectionURL="jdbc:mysql://124.222.133.21:3306/shop4cloud_user?serverTimezone=UTC&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8"
                         userId="root" password="root">
             <property name="useInformationSchema" value="true"/>
         </jdbcConnection>

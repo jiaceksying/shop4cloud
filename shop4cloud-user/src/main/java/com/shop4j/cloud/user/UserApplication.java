@@ -13,7 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @EnableDubbo
 @SpringBootApplication
-@MapperScan("com.shop4j.cloud.user.mapper")
+@MapperScan("com.shop4j.cloud.user.infra.dao.mapper")
 public class UserApplication {
 
     public static void main(String[] args) {
