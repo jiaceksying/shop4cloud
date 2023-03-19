@@ -66,6 +66,11 @@
                 <artifactId>shop4cloud-api-user</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.shop4j.cloud</groupId>
+                <artifactId>shop4cloud-api-leaf</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <!-- 核心依赖 -->
             <!--spring boot-->
             <dependency>
