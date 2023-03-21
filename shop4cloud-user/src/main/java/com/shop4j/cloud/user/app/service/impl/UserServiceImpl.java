@@ -3,7 +3,7 @@ package com.shop4j.cloud.user.app.service.impl;
 import com.shop4j.cloud.common.response.UnifiedResponse;
 import com.shop4j.cloud.user.app.command.UserRegisterCmdExe;
 import com.shop4j.cloud.user.app.service.UserService;
-import com.shop4j.cloud.user.model.UserRegisterDTO;
+import com.shop4j.cloud.user.client.dto.UserRegisterDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

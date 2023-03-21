@@ -1,4 +1,4 @@
-package com.shop4j.cloud.user.app.api;
+package com.shop4j.cloud.user.app;
 
 import com.shop4j.cloud.common.response.UnifiedResponse;
 import com.shop4j.cloud.user.api.UserApi;

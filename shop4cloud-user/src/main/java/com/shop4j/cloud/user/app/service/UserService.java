@@ -1,7 +1,7 @@
 package com.shop4j.cloud.user.app.service;
 
 import com.shop4j.cloud.common.response.UnifiedResponse;
-import com.shop4j.cloud.user.model.UserRegisterDTO;
+import com.shop4j.cloud.user.client.dto.UserRegisterDTO;
 
 /**
  * 用户Service

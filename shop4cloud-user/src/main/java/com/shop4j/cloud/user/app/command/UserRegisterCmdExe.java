@@ -5,8 +5,8 @@ import com.shop4j.cloud.common.response.ResponseEnum;
 import com.shop4j.cloud.common.response.UnifiedResponse;
 import com.shop4j.cloud.user.infra.dao.entity.UserDO;
 import com.shop4j.cloud.user.infra.dao.mapper.UserMapper;
-import com.shop4j.cloud.user.model.UserRegisterDTO;
-import com.shop4j.cloud.user.model.UserStatusEnum;
+import com.shop4j.cloud.user.client.dto.UserRegisterDTO;
+import com.shop4j.cloud.user.client.enums.UserStatusEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

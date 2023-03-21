@@ -1,4 +1,4 @@
-package com.shop4j.cloud.user.model;
+package com.shop4j.cloud.user.client.enums;
 
 import com.shop4j.cloud.common.model.BaseEnum;
 

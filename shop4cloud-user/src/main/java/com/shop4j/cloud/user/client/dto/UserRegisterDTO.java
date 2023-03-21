@@ -1,4 +1,4 @@
-package com.shop4j.cloud.user.model;
+package com.shop4j.cloud.user.client.dto;
 
 import com.shop4j.cloud.common.dto.BaseDTO;
 import jakarta.validation.constraints.NotBlank;

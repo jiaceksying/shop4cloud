@@ -2,7 +2,7 @@ package com.shop4j.cloud.user.controller;
 
 import com.shop4j.cloud.common.response.UnifiedResponse;
 import com.shop4j.cloud.user.app.service.UserService;
-import com.shop4j.cloud.user.model.UserRegisterDTO;
+import com.shop4j.cloud.user.client.dto.UserRegisterDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
