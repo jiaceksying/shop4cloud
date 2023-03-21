@@ -25,6 +25,11 @@ public enum ResponseEnum {
 	EXCEPTION("A00005", "服务器出了点小差"),
 
 	/**
+	 * 参数错误
+	 */
+	ERROR_PARAM("A00006", "参数错误"),
+
+	/**
 	 * 数据异常
 	 */
 	DATA_ERROR("A00007", "数据异常，请刷新后重新操作");
