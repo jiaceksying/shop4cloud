@@ -1,6 +1,8 @@
 package com.shop4j.cloud.user.app.service;
 
+import com.shop4j.cloud.common.database.vo.PageVO;
 import com.shop4j.cloud.common.response.UnifiedResponse;
+import com.shop4j.cloud.user.client.param.UserOpsQueryParam;
 import com.shop4j.cloud.user.client.vo.UserOpsVO;
 
 /**
@@ -17,6 +19,13 @@ public interface UserOpsService {
      * @param userId 用户ID
      * @return 用户信息
      */
-    UnifiedResponse<UserOpsVO> queryById(Long userId);
+    UnifiedResponse<UserOpsVO> findById(Long userId);
 
+    /**
+     * 分页查询操作
+     *
+     * @param param 入参
+     * @return 结果
+     */
+    PageVO<UserOpsVO> findByPage(UserOpsQueryParam param);
 }

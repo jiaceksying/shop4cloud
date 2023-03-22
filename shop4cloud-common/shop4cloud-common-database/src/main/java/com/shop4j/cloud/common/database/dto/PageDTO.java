@@ -122,6 +122,22 @@ public class PageDTO implements IPage {
 		return stringBuilder.toString();
 	}
 
+	public Integer getStart() {
+		if (pageNum == null || pageSize == null) {
+			return null;
+		}
+		int pageNo = pageNum - 1;
+		if (pageNo < 0) {
+			pageNo = 0;
+		}
+
+		if (pageSize < 1) {
+			pageSize = 0;
+		}
+
+		return pageNo * pageSize;
+	}
+
 	@Override
 	public String toString() {
 		return "PageDTO{" + "pageNum=" + pageNum + ", pageSize=" + pageSize + ", columns=" + Arrays.toString(columns)

@@ -41,8 +41,32 @@
         where user_id = #{userId,jdbcType=BIGINT}
     </select>
 
-    <select id="selectAll" resultMap="BaseResultMap">
+    <sql id="conditionByParam">
+        <where>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="nickName != null">
+                and nick_name like concat('%', #{nickName}, '%')
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </where>
+    </sql>
+
+    <select id="selectByParam" resultMap="BaseResultMap">
         select user_id, create_time, update_time, nick_name, pic, status
         from user
+        <include refid="conditionByParam"/>
+        <if test="start != null and pageSize != null">
+            limit #{start}, #{pageSize}
+        </if>
+    </select>
+
+    <select id="countByParam" resultType="java.lang.Long">
+        select count(*)
+        from user
+        <include refid="conditionByParam"/>
     </select>
 </mapper>

@@ -6,6 +6,8 @@ import com.github.pagehelper.PageSerializable;
 import com.shop4j.cloud.common.database.dto.PageDTO;
 import com.shop4j.cloud.common.database.vo.PageVO;
 
+import java.util.List;
+
 /**
  * @author ksying
  * @date 2023/3/12 15:20
@@ -25,6 +27,17 @@ public class PageUtils {
 		pageVO.setPages(getPages(simplePageInfo.getTotal(), pageDTO.getPageSize()));
 		return pageVO;
 	}
+
+    /**
+     * 自定义分页对象
+     */
+    public static <T> PageVO<T> doPage(PageDTO pageDTO, List<T> list, Long total) {
+        PageVO<T> pageVO = new PageVO<>();
+        pageVO.setList(list);
+        pageVO.setTotal(total);
+        pageVO.setPages(getPages(total, pageDTO.getPageSize()));
+        return pageVO;
+    }
 
 	public static Integer getPages(long total, Integer pageSize) {
 
