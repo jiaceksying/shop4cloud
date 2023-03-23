@@ -5,9 +5,10 @@ import com.shop4j.cloud.common.util.PrincipalUtils;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 import javax.validation.constraints.NotNull;
-import java.util.Arrays;
 
 /**
  * @author ksying
@@ -122,26 +123,9 @@ public class PageDTO implements IPage {
 		return stringBuilder.toString();
 	}
 
-	public Integer getStart() {
-		if (pageNum == null || pageSize == null) {
-			return null;
-		}
-		int pageNo = pageNum - 1;
-		if (pageNo < 0) {
-			pageNo = 0;
-		}
-
-		if (pageSize < 1) {
-			pageSize = 0;
-		}
-
-		return pageNo * pageSize;
-	}
-
 	@Override
 	public String toString() {
-		return "PageDTO{" + "pageNum=" + pageNum + ", pageSize=" + pageSize + ", columns=" + Arrays.toString(columns)
-				+ ", orders=" + Arrays.toString(orders) + '}';
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
 	}
 
 }

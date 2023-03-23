@@ -31,11 +31,11 @@ public class PageUtils {
     /**
      * 自定义分页对象
      */
-    public static <T> PageVO<T> doPage(PageDTO pageDTO, List<T> list, Long total) {
+    public static <T> PageVO<T> doPage(Integer pageSize, List<T> list, Long total) {
         PageVO<T> pageVO = new PageVO<>();
         pageVO.setList(list);
         pageVO.setTotal(total);
-        pageVO.setPages(getPages(total, pageDTO.getPageSize()));
+        pageVO.setPages(getPages(total, pageSize));
         return pageVO;
     }
 

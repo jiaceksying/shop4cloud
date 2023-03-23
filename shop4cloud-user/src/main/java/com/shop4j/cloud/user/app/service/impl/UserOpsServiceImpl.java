@@ -47,6 +47,6 @@ public class UserOpsServiceImpl implements UserOpsService {
         List<UserOpsVO> voList = list.stream()
                 .map(UserOpsConverter::toVO).collect(Collectors.toList());
 
-        return PageUtils.doPage(param, voList, count);
+        return PageUtils.doPage(param.getPageSize(), voList, count);
     }
 }

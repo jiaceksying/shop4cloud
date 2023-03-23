@@ -3,6 +3,8 @@ package com.shop4j.cloud.common.database.vo;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.util.List;
 
@@ -25,7 +27,7 @@ public class PageVO<T> {
 
 	@Override
 	public String toString() {
-		return "PageVO{" + ", pages=" + pages + ", total=" + total + ", list=" + list + '}';
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
 	}
 
 }

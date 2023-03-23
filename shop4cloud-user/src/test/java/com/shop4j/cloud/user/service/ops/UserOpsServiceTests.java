@@ -59,12 +59,11 @@ public class UserOpsServiceTests {
     @Test
     public void findByPage() {
         UserOpsQueryParam queryParam = new UserOpsQueryParam();
-        queryParam.setPageNum(6);
+        queryParam.setPageNum(1);
         queryParam.setPageSize(10);
+        queryParam.setStatus(2);
         PageVO<UserOpsVO> response = userOpsService.findByPage(queryParam);
         log.info("user findByPage! result: {}", response);
     }
-
-
 
 }
