@@ -14,6 +14,7 @@
         <module>shop4cloud-leaf</module>
         <module>shop4cloud-user</module>
         <module>shop4cloud-test</module>
+        <module>shop4cloud-rbac</module>
     </modules>
 
     <properties>

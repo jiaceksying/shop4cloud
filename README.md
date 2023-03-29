@@ -20,3 +20,21 @@ Unable to make field protected java.lang.reflect.InvocationHandler java.lang.ref
 ```shell
 --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.desktop/java.awt.font=ALL-UNNAMED
 ```
+
+## 现阶段包结构定义
+```
+user
+├─controller
+├─app
+│  ├─rpc
+│  └─service(implement)
+├─client
+│  ├─service(interface)
+│  ├─dto
+│  └─vo
+└─infrastructure
+   ├─config
+   ├─mapper
+   ├─entity
+   └─utils
+```
